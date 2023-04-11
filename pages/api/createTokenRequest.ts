@@ -1,6 +1,5 @@
 import Ably from 'ably/promises'
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript'
 
 export default async function handler(
     req: NextApiRequest,
