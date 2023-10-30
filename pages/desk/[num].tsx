@@ -18,7 +18,9 @@ export default function Desk() {
     console.log(`score${num}`);
     if (message.data[`score${num}`] !== undefined) {
       console.log(message.data[`score${num}`]);
+      console.log(start);
       updateStart(score);
+      console.log(start);
       updateScore(message.data[`score${num}`]);
       response.publish("response", {
         points: message.data[`score${num}`],
