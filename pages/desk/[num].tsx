@@ -6,7 +6,7 @@ import CountUp from "react-countup";
 
 export default function Desk() {
   const { num } = useRouter().query;
-  console.log(num);
+  console.log("Desk num", num);
   const [start, updateStart] = useState(0);
   const [score, updateScore] = useState(0);
   const [response] = useChannel("response", (message) => {
