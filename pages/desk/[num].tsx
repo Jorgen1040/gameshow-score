@@ -6,6 +6,7 @@ import CountUp from "react-countup";
 
 export default function Desk() {
   const { num } = useRouter().query;
+  const deskNum = "score" + num;
   console.log("Desk num", num);
   // const [start, updateStart] = useState(0);
   // const [score, updateScore] = useState(0);
@@ -18,14 +19,14 @@ export default function Desk() {
   const [channel] = useChannel("points", (message) => {
     console.log(message);
     console.log(`score${num}`);
-    if (message.data[`score${num}`] !== undefined) {
+    if (message.data[deskNum] !== undefined) {
       console.log(message.data[`score${num}`]);
       console.log(start);
       // updateStart(score);
       console.log(start);
-      updateScore([score, message.data[`score${num}`]]);
+      updateScore([score, message.data[deskNum]]);
       response.publish("response", {
-        points: message.data[`score${num}`],
+        points: message.data[deskNum],
         desk: num,
       });
     }
