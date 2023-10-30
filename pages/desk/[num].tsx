@@ -1,11 +1,18 @@
 import { useChannel } from "@ably-labs/react-hooks";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CountUp from "react-countup";
 
 export default function Desk() {
+  const router = useRouter();
   const { num } = useRouter().query;
+  useEffect(() => {
+    if (router.isReady) {
+      // Code using query
+      console.log(router.query);
+    }
+  }, [router.isReady, router.query]);
   const deskNum = "score" + num;
   console.log("Desk num", num);
   // const [start, updateStart] = useState(0);
@@ -15,7 +22,7 @@ export default function Desk() {
 
   const [response] = useChannel("response", (message) => {
     console.log(message);
-  });
+    });
   const [channel] = useChannel("points", (message) => {
     console.log(message);
     console.log(deskNum);
