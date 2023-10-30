@@ -10,6 +10,7 @@ const clientId =
   Math.random().toString(36).substring(2, 15);
 
 console.log(`${prefix}/api/createTokenRequest?clientId=${clientId}`);
+console.log(clientId);
 
 configureAbly({
   authUrl: `${prefix}/api/createTokenRequest?clientId=${clientId}`,
