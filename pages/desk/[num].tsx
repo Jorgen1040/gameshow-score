@@ -13,6 +13,7 @@ export default function Desk() {
     console.log(message);
   });
   const [channel] = useChannel("points", (message) => {
+    if (!num) return;
     console.log(message);
     console.log(`score${num}`);
     if (message.data[`score${num}`] !== undefined) {
@@ -30,7 +31,7 @@ export default function Desk() {
   return (
     <main className="bg-gradient-radial from-purple-200 to-purple-400">
       <div className="flex items-center justify-center h-screen">
-        <h1 className="text-[40rem] font-bold outline-8">
+        <h1 className="text-[40rem] leading-none font-bold outline-8">
           <CountUp start={start} end={score} />
         </h1>
       </div>
