@@ -18,7 +18,7 @@ export default function Desk() {
   });
   const [channel] = useChannel("points", (message) => {
     console.log(message);
-    console.log(`score${num}`);
+    console.log(deskNum);
     if (message.data[deskNum] !== undefined) {
       console.log(message.data[`score${num}`]);
       console.log(start);
